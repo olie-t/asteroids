@@ -51,4 +51,3 @@ class Player(CircleShape):
         shot.velocity = shot.velocity.rotate(self.rotation)
         shot.velocity *= PLAYER_SHOT_SPEED
         self.shots_group.add(shot)
-

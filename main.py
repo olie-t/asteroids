@@ -22,7 +22,7 @@ def main():
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2, shots_group=shots)
     Asteroid.containers = updateable, drawable, asteroids
     updateable.add(player, asteroid_field, shots)
-    drawable.add(player)
+    drawable.add(player, shots)
 
 
 
@@ -44,6 +44,9 @@ def main():
                 game_running = False
             for s in shots:
                 collision = s.check_collisions(a)
+        for shot in shots:
+            shot.update(dt)
+            shot.draw(screen)
 
         pygame.display.flip()
         clock_return = clock.tick(60)

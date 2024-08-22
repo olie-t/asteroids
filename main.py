@@ -44,6 +44,10 @@ def main():
                 game_running = False
             for s in shots:
                 collision = s.check_collisions(a)
+                if collision:
+                    a.kill()
+                    s.kill()
+
         for shot in shots:
             shot.update(dt)
             shot.draw(screen)
